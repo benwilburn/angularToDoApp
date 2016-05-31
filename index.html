@@ -21,8 +21,22 @@
 			<form ng-submit="addTodo()">
 				<label for="newTodo">Add Task</label>
 				<input id="newTodo" type="text" ng-model="newTodo">
+				<input type="radio" name="taskType" value="home" selected ng-model="taskType">Home
+				<input type="radio" name="taskType" value="work" ng-model="taskType">Work
 				<button type="submit" class="btn btn-default">To Do</button>
 			</form>
+
+			<div>
+				<h2>You have selected: {{selectedTodo.name}}, @ {{selectedTodo.type}}</h2>
+			</div>
+
+			<div>
+				<label for="type">Task Type</label>
+				<select id="type"
+				ng-model="selectedTodo"
+				ng-options="item.name group by item.type for item in tasks">
+				</select>
+			</div>
 
 		  <input type="checkbox" ng-model="variableName">
       <div>{{variableName}}</div>
@@ -32,6 +46,8 @@
           <li>{{variable.name}} {{variable.type}}<button ng-click="removeTodo(variable)">Delete</button></li>
         </ul>
       </div>
+
+
 		</div>
 
 	</section>
