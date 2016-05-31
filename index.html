@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular ToDo App</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="angularToDoApp">
+	<section ng-controller="angularToDoCtrl">
+		<h1>{{title}}</h1>
+
+		<div>
+			<label for="potato">Filter1</label>
+			<input id="potato" type="text" ng-model="potato">
+
+			<label for="filter2">Filter2</label>
+			<input id="filter2" type="text" ng-model="filter2">
+
+			<form ng-submit="addTodo()">
+				<label for="newTodo">Add Task</label>
+				<input id="newTodo" type="text" ng-model="newTodo">
+				<button type="submit" class="btn btn-default">To Do</button>
+			</form>
+
+		  <input type="checkbox" ng-model="variableName">
+      <div>{{variableName}}</div>
+
+      <div>
+        <ul ng-repeat="variable in tasks | filter: potato | filter: filter2">
+          <li>{{variable.name}} {{variable.type}}<button ng-click="removeTodo(variable)">Delete</button></li>
+        </ul>
+      </div>
+		</div>
+
+	</section>
+
+	<script src="bower_components/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/controllers/todo.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
